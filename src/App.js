@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { version, Button } from 'antd';
+//import "antd/dist/antd.css";
 
 class App extends Component {
   render() {
@@ -19,6 +21,8 @@ class App extends Component {
           >
             Learn React
           </a>
+          <button>点击一下吧</button>
+          <Button type="primary">Hello</Button>
         </header>
       </div>
     );
