@@ -1,9 +1,9 @@
 import React,{ Component } from 'react';
 import { Menu,Icon } from 'antd';
+import {NavLink} from 'react-router-dom';
 import './index.less'
 import MenuConfig from '../../config/menuConfig';
 const SubMenu=Menu.SubMenu;
-const MenuItemGroup=Menu.ItemGroup;
 export default class NavLeft extends Component{
     componentWillMount(){
         const menuTreeNode=this.renderMenu(MenuConfig);
@@ -21,7 +21,11 @@ export default class NavLeft extends Component{
                     </SubMenu>
                 )
             }
-            return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
+            return (
+                <Menu.Item title={item.title} key={item.key}>
+                    <NavLink to={item.key}>{item.title}</NavLink>
+                </Menu.Item>
+                )
         });
     };
     render(){

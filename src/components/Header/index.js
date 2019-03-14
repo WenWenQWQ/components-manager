@@ -18,7 +18,7 @@ export default class Header extends Component{
     }
     getWeatherAPIData(){
         let city='北京';
-        axios.jsonp({
+        /*axios.jsonp({
             url:'http://api.map.baidu.com/telematics/v3/weather?location='+encodeURIComponent(city)+'&output=json&ak=L1zQtUpLDA5LMuAiM4naS4xzd2RyVuBZ'
         }).then((res)=>{
             if(res.status==='success'){
@@ -28,7 +28,7 @@ export default class Header extends Component{
                     weather:data.weather
                 })
             }
-        })
+        })*/
     }
     render(){
         return (
