@@ -1,8 +1,33 @@
 import React from 'react'
-import {Card, Button, Form, Input, Checked, Radio, Select, Switch, DatePicker, TimePicker, Upload, Icon, message, InputNumber } from 'antd'
+import {Card, Button, Form, Input, Checkbox, Radio, Select, Switch, DatePicker, TimePicker, Upload, Icon, message, InputNumber } from 'antd'
 import moment from 'moment'
 const Option=Select.Option;
 class Register extends React.Component{
+    state={
+        imageUrl:''
+    };
+    handleSubmit =()=>{
+        let userInfo=this.props.form.getFieldsValue();
+        console.log(JSON.stringify(userInfo));
+        message.success(`${userInfo.username}恭喜你注册成功`)
+    };
+    getBase64 = (img, callback)=> {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+        reader.readAsDataURL(img);
+    };
+    handleChange = (info) => {
+        if (info.file.status === 'uploading') {
+            this.setState({loading: true});
+            return;
+        }
+        if (info.file.status === 'done') {
+            this.getBase64(info.file.originFileObj, imageUrl => this.setState({
+                imageUrl,
+                loading: false,
+            }));
+        }
+    };
     render(){
         const {getFieldDecorator}=this.props.form;
         const formItemLayout={
@@ -15,6 +40,15 @@ class Register extends React.Component{
                 sm:12
             }
         };
+        const offsetLayout={
+            wrapperCol:{
+                xs:24,
+                sm:{
+                    span:12,
+                    offset:4
+                }
+            }
+        }
         return (
             <div>
                 <Card title="注册表单">
@@ -140,9 +174,29 @@ class Register extends React.Component{
                         <Form.Item label="头像" {...formItemLayout}>
                             {
                                 getFieldDecorator('userImg')(
-
+                                    <Upload
+                                        listType="picture-card"
+                                        showUploadList={false}
+                                        action="//jsonplaceholder.typicode.com/posts/"
+                                        onChange={this.handleChange}
+                                    >
+                                        {
+                                            this.state.imageUrl?<img src={this.state.imageUrl}/>:<Icon type="plus"/>
+                                        }
+                                    </Upload>
                                 )
                             }
+                        </Form.Item>
+                        <Form.Item {...offsetLayout}>
+                            {
+                                getFieldDecorator('agreement')(
+                                    <Checkbox>我已阅读<a href="#">协议</a></Checkbox>
+                                )
+
+                            }
+                        </Form.Item>
+                        <Form.Item {...offsetLayout}>
+                           <Button type="primary" onClick={this.handleSubmit}>注册</Button>
                         </Form.Item>
                     </Form>
                 </Card>
