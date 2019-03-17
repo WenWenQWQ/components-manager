@@ -13,6 +13,7 @@ import Carousel from './page/ui/carousel'
 import Login from './page/form/login'
 import Register from './page/form/register'
 import BasicTable from './page/table/basicTable'
+import HighTable from './page/table/highTable'
 export default class IRouter extends Component{
     render(){
         return (
@@ -32,6 +33,7 @@ export default class IRouter extends Component{
                                 <Route path="/form/login" component={Login}/>
                                 <Route path="/form/reg" component={Register}/>
                                 <Route path="/table/basic" component={BasicTable}/>
+                                <Route path="/table/high" component={HighTable}/>
                             </Switch>
                         </Admin>
                     }/>

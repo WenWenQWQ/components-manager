@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, Table } from 'antd'
 import axios from './../../axios'
-import Utils from './../../utils'
+import Utils from './../../utils/utils'
 export default class BasicTable extends React.Component{
     state={};
     params={
@@ -168,7 +168,7 @@ export default class BasicTable extends React.Component{
                     selectedIds:ids
                 })
             }
-        }
+        };
         return (
             <div>
                 <Card title="基础表格">
@@ -217,7 +217,7 @@ export default class BasicTable extends React.Component{
                         bordered
                         columns={columns}
                         dataSource={this.state.dataSource2}
-                        pagination={this.pagination}
+                        pagination={this.state.pagination}
                     />
                 </Card>
             </div>
