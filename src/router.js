@@ -12,6 +12,7 @@ import Gallery from './page/ui/gallery'
 import Carousel from './page/ui/carousel'
 import Login from './page/form/login'
 import Register from './page/form/register'
+import BasicTable from './page/table/basicTable'
 export default class IRouter extends Component{
     render(){
         return (
@@ -30,6 +31,7 @@ export default class IRouter extends Component{
                                 <Route path="/ui/carousel" component={Carousel}/>
                                 <Route path="/form/login" component={Login}/>
                                 <Route path="/form/reg" component={Register}/>
+                                <Route path="/table/basic" component={BasicTable}/>
                             </Switch>
                         </Admin>
                     }/>
