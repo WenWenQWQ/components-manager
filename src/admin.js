@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer'
 import NavLeft from './components/NavLeft'
 import './style/common.less'
-import Home from './page/home/index.js'
 
 export default class Admin extends Component{
     render(){
