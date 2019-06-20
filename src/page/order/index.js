@@ -2,14 +2,43 @@ import React from 'react'
 import { Card, Button, Table, Form, Select, Modal, message, DatePicker } from 'antd'
 import axios from './../../axios'
 import Utils from './../../utils/utils'
+import BaseForm from './../../components/BaseForm'
 const Option=Select.Option;
 export default class Order extends React.Component{
     state={};
     params = {
         page:1
     };
+    formList=[
+        {
+            type:'SELECT',
+            label:'城市',
+            field:'city',
+            placeholder:'全部',
+            initialValue:'1',
+            width:80,
+            list:[{id:'0',name:'全部'},{id:'1',name:'北京'},{id:'2',name:'天津'},{id:'3',name:'深圳'}]
+        },
+        {
+            type:'时间查询',
+            width:200
+        },
+        {
+            type:'SELECT',
+            label:'订单时间',
+            field:'status',
+            placeholder:'全部',
+            initialValue:'1',
+            width:100,
+            list:[{id:'0',name:'全部'},{id:'1',name:'进行中'},{id:'2',name:'结束行程'}]
+        }
+    ];
     componentDidMount(){
         this.requestList()
+    }
+    handleFilter=(params)=>{
+        this.params=params;
+        this.requestList();
     }
     requestList=()=>{
         let _this=this;
@@ -110,7 +139,7 @@ export default class Order extends React.Component{
         return (
             <div>
                 <Card>
-                    <FilterForm />
+                    <BaseForm formList={this.formList} filterSubmit={this.handleFilter}/>
                 </Card>
                 <Card style={{marginTop:10}}>
                     <Button type="primary" onClick={this.openOrderDetail}>订单详情</Button>
@@ -172,7 +201,7 @@ class FilterForm extends React.Component{
                 </Form.Item>
                 <Form.Item label="订单状态">
                     {
-                        getFieldDecorator('op_mode')(
+                        getFieldDecorator('order_status')(
                             <Select
                                 style={{width:80}}
                                 placeholder="全部"

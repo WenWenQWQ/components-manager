@@ -1,0 +1,5 @@
+import React from 'react'
+import {Card} from 'antd'
+import ReactEcharts from 'echarts-for-react'
+import 'echarts/lib/echarts'
+import 'echarts/'

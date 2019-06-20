@@ -70,10 +70,6 @@ const menuList = [
         ]
     },
     {
-        title: '富文本',
-        key: '/rich'
-    },
-    {
         title: '城市管理',
         key: '/city'
     },
@@ -92,15 +88,7 @@ const menuList = [
         ]
     },
     {
-        title: '员工管理',
-        key: '/user'
-    },
-    {
-        title: '车辆地图',
-        key: '/bikeMap'
-    },
-    {
-        title: '图标',
+        title: '图表',
         key: '/charts',
         children: [
             {
@@ -108,18 +96,10 @@ const menuList = [
                 key: '/charts/bar'
             },
             {
-                title: '饼图',
-                key: '/charts/pie'
-            },
-            {
                 title: '折线图',
                 key: '/charts/line'
             },
         ]
-    },
-    {
-        title: '权限设置',
-        key: '/permission'
-    },
+    }
 ];
 export default menuList;

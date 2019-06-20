@@ -18,6 +18,8 @@ import City from './page/city/index'
 import Order from './page/order/index'
 import Common from './common'
 import OrderDetail from './page/order/detail'
+import Bar from './page/echarts/bar'
+import Line from './page/echarts/line'
 export default class IRouter extends Component{
     render(){
         return (
@@ -46,6 +48,8 @@ export default class IRouter extends Component{
                                     <Route path="/table/high" component={HighTable}/>
                                     <Route path="/city" component={City}/>
                                     <Route path="/order" component={Order} />
+                                    <Route path="/charts/bar" component={Bar}/>
+                                    <Route path="/charts/line" component={Line}/>
                                 </Switch>
                             </Admin>
                         }/>

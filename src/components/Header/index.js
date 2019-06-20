@@ -6,7 +6,7 @@ import axios from '../../axios/index';
 export default class Header extends Component{
     componentWillMount(){
         this.setState({
-            userName:'河畔一角'
+            userName:'佳佳'
         });
         setInterval(()=>{
             let sysTime=Utils.formateDate(new Date().getTime());
@@ -14,11 +14,11 @@ export default class Header extends Component{
                 sysTime
             })
         },1000);
-        this.getWeatherAPIData();
+      //  this.getWeatherAPIData();
     }
-    getWeatherAPIData(){
+   /* getWeatherAPIData(){
         let city='北京';
-        /*axios.jsonp({
+        /!*axios.jsonp({
             url:'http://api.map.baidu.com/telematics/v3/weather?location='+encodeURIComponent(city)+'&output=json&ak=L1zQtUpLDA5LMuAiM4naS4xzd2RyVuBZ'
         }).then((res)=>{
             if(res.status==='success'){
@@ -28,8 +28,8 @@ export default class Header extends Component{
                     weather:data.weather
                 })
             }
-        })*/
-    }
+        })*!/
+    }*/
     render(){
         const menuType=this.props.menuType;
         return (
@@ -56,7 +56,7 @@ export default class Header extends Component{
                             <span className="date">{this.state.sysTime}</span>
                             <span className="weather-img">
                             <img src={this.state.dayPictureUrl} alt=""/>
-                        </span>
+                            </span>
                             <span className="weather-detail">
                              {this.state.weather}
                         </span>
